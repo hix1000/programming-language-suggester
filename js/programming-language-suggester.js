@@ -42,44 +42,41 @@ window.onload = function() {
     
     //#region UI logic
     let form = document.querySelector("form");
-    try {
-        form.onsubmit = function(event) {
 
-            const experience = document.getElementById("experience").selectedIndex;
-            const pastLanguages = document.getElementById("past-languages").value;
-            const programmingExpertise = document.getElementById("programming-expertise").selectedIndex;
-            const assemblerCompiler = document.getElementById("assembler-compiler").selectedIndex;
-            const whyLearnPast = Array.from(document.querySelectorAll("input[type='checkbox']")).map(checkbox => checkbox.checked);
-            const difficulty = document.getElementById("difficulty").selectedIndex;
-
-            let whyLearnPastScore = 0;
-            for (let i = 0; i < whyLearnPast.length; i++) {
-                if (whyLearnPast[i]) {
-                    whyLearnPastScore += 1;
-                }
+    form.onsubmit = function(event) {
+        const experience = document.getElementById("experience").selectedIndex;
+        const pastLanguages = document.getElementById("past-languages").value;
+        const programmingExpertise = document.getElementById("programming-expertise").selectedIndex;
+        const assemblerCompiler = document.getElementById("assembler-compiler").selectedIndex;
+        const whyLearnPast = Array.from(document.querySelectorAll("input[type='checkbox']")).map(checkbox => checkbox.checked);
+        const difficulty = document.getElementById("difficulty").selectedIndex;
+        let whyLearnPastScore = 0;
+        for (let i = 0; i < whyLearnPast.length; i++) {
+            if (whyLearnPast[i]) {
+                whyLearnPastScore += 1;
             }
+        }
 
-            console.log(experience);
+        if (Object.keys(languageTokens).length === 0) {
+            document.querySelector("p#languages").innerText = "Error: Metadata fetch failed. Please try reloading the page.";
+        } else {
             const lang = suggestThreeLanguages(experience, pastLanguages, programmingExpertise, assemblerCompiler, whyLearnPastScore, difficulty);
             if (lang[0] === "Brainf*ck") {
                 document.querySelector("p#languages").innerText = `We would recommend the languages ${lang[0]}, ${lang[1]}, and ${lang[2]}.\nAlso, you need help.`;
             } else {
                 document.querySelector("p#languages").innerText = `We would recommend the languages ${lang[0]}, ${lang[1]}, and ${lang[2]}.`;
             }
-            
-            console.log("experience: "+experience);
-            console.log("pastLanguages: "+pastLanguages);
-            console.log("programmingExpertise: "+programmingExpertise);
-            console.log("assemblerCompiler: "+assemblerCompiler);
-            console.log("whyLearnPast: "+whyLearnPast);
-            console.log("difficulty: "+difficulty);
-            
-            event.preventDefault();
-
-            document.querySelector("div#output").removeAttribute("class");
-        };
-    } catch (error) {
-        console.error(error);
-    }
+        }
+        
+        console.log("experience: "+experience);
+        console.log("pastLanguages: "+pastLanguages);
+        console.log("programmingExpertise: "+programmingExpertise);
+        console.log("assemblerCompiler: "+assemblerCompiler);
+        console.log("whyLearnPast: "+whyLearnPast);
+        console.log("difficulty: "+difficulty);
+        
+        event.preventDefault();
+        document.querySelector("div#output").removeAttribute("class");
+    };
     //#endregion
 };
