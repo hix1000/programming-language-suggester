@@ -1,126 +1,19 @@
 //#region Business logic
-const languageTokens = {
-    "Ruby": {
-        "requiredExperience": 0,
-        "pastLanguageDifficulty": 0,
-        "programmingExpertise": 0,
-        "assemblerCompiler": 0,
-        "whyLearnPast": 2,
-        "difficulty": 1
-    },
-    "C#": {
-        "requiredExperience": 2,
-        "pastLanguageDifficulty": 4,
-        "programmingExpertise": 3,
-        "assemblerCompiler": 0,
-        "whyLearnPast": 1,
-        "difficulty": 3
-    },
-    "JavaScript": {
-        "requiredExperience": 1,
-        "pastLanguageDifficulty": 2,
-        "programmingExpertise": 2,
-        "assemblerCompiler": 0,
-        "whyLearnPast": 2,
-        "difficulty": 2
-    },
-    "Go": {
-        "requiredExperience": 2,
-        "pastLanguageDifficulty": 3,
-        "programmingExpertise": 3,
-        "assemblerCompiler": 1,
-        "whyLearnPast": 2,
-        "difficulty": 2
-    },
-    "Python": {
-        "requiredExperience": 0,
-        "pastLanguageDifficulty": 0,
-        "programmingExpertise": 0,
-        "assemblerCompiler": 0,
-        "whyLearnPast": 1,
-        "difficulty": 1
-    },
-    "Rust": {
-        "requiredExperience": 4,
-        "pastLanguageDifficulty": 4,
-        "programmingExpertise": 4,
-        "assemblerCompiler": 2,
-        "whyLearnPast": 4,
-        "difficulty": 5
-    },
-    "Swift": {
-        "requiredExperience": 1,
-        "pastLanguageDifficulty": 2,
-        "programmingExpertise": 2,
-        "assemblerCompiler": 0,
-        "whyLearnPast": 2,
-        "difficulty": 2
-    },
-    "Java": {
-        "requiredExperience": 2,
-        "pastLanguageDifficulty": 3,
-        "programmingExpertise": 2,
-        "assemblerCompiler": 0,
-        "whyLearnPast": 2,
-        "difficulty": 3
-    },
-    "GDscript": {
-        "requiredExperience": 1,
-        "pastLanguageDifficulty": 1,
-        "programmingExpertise": 1,
-        "assemblerCompiler": 0,
-        "whyLearnPast": 3,
-        "difficulty": 1
-    },
-    "GML Code": {
-        "requiredExperience": 1,
-        "pastLanguageDifficulty": 1,
-        "programmingExpertise": 1,
-        "assemblerCompiler": 0,
-        "whyLearnPast": 3,
-        "difficulty": 1
-    },
-    "C++": {
-        "requiredExperience": 3,
-        "pastLanguageDifficulty": 4,
-        "programmingExpertise": 3,
-        "assemblerCompiler": 1,
-        "whyLearnPast": 4,
-        "difficulty": 4
-    },
-    "Assembly": {
-        "requiredExperience": 3,
-        "pastLanguageDifficulty": 5,
-        "programmingExpertise": 4,
-        "assemblerCompiler": 2,
-        "whyLearnPast": 5,
-        "difficulty": 5
-    },
-    "Scratch": {
-        "requiredExperience": 0,
-        "pastLanguageDifficulty": 0,
-        "programmingExpertise": 0,
-        "assemblerCompiler": 0,
-        "whyLearnPast": 0,
-        "difficulty": 0
-    },
-    "Raw Machine Code": {
-        "requiredExperience": 4,
-        "pastLanguageDifficulty": 5,
-        "programmingExpertise": 4,
-        "assemblerCompiler": 4,
-        "whyLearnPast": 5,
-        "difficulty": 5
-    },
-    "Brainf*ck": {
-        "requiredExperience": 4,
-        "pastLanguageDifficulty": 5,
-        "programmingExpertise": 4,
-        "assemblerCompiler": 4,
-        "whyLearnPast": 6,
-        "difficulty": 6
-    }
-}
+let languageTokens = {};
+fetch('js/language-tokens.json')
+    .then(response => {
+        if (!response.ok) {
+        throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Fetched language tokens:', data);
+        languageTokens = data;
+    })
+    .catch(error => {
+        console.error('Fetch operation failed:', error);
+    });
 
 function getLanguageExperienceScore(language) {
     if (language === "None") {return 0};
