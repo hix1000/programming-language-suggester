@@ -4,102 +4,130 @@
 
     <title> Programming Language Suggester </title>
     <script src="js/programming-language-suggester.js" defer> </script>
-
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/programming-language-suggester.css">
+    
 </head>
 <body>
-    
-    <h1> Programming Language Suggester </h1>
+    <nav class="navbar text-center">
+        <h1" class="display-4"> Programming Language Suggester </h1>
+    </nav>
+    <br>
 
-    <hr>
-    <form>
+    <div class="container">
+        <form>
+            <div class="form-group">
+                <label for="experience"> On a scale of 1-5, How experienced are you with programming languages? </label>
+                <br>
+                <select class="form-control" id="experience">
+                    <option> 1 - No experience                                     </option>
+                    <option> 2 - Some experience                                   </option>
+                    <option> 3 - A good amount of experience                       </option>
+                    <option> 4 - A lot of experience                               </option>
+                    <option> 5 - I manipulate individual bits on computers for fun </option>
+                </select>
+            </div>
+            <br>
 
-        <label for="experience"> On a scale of 1-5, How experienced are you with programming languages? </label>
-        <br>
-        <select id="experience">
-            <option> 1 - No experience                                     </option>
-            <option> 2 - Some experience                                   </option>
-            <option> 3 - A good amount of experience                       </option>
-            <option> 4 - A lot of experience                               </option>
-            <option> 5 - I manipulate individual bits on computers for fun </option>
-        </select>
+            <div class="form-group">
+                <label for="past-languages"> Which programming languages have you used most in the past? </label>
+                <br>
+                <select class="form-control" id="past-languages">
+                    <option> None             </option>
+                    <option> Ruby             </option>
+                    <option> C#               </option>
+                    <option> JavaScript       </option>
+                    <option> Go               </option>
+                    <option> Python           </option>
+                    <option> Rust             </option>
+                    <option> Swift            </option>
+                    <option> Java             </option>
+                    <option> GDScript         </option>
+                    <option> GML Code         </option>
+                    <option> C++              </option>
+                    <option> Assembly         </option>
+                    <option> Scratch          </option>
+                    <option> Raw Machine Code </option>
+                </select>
+            </div>
+            <br>
 
-        <br><br>
+            <div class="form-group">
+                <label for="programming-expertise"> How had you programmed in the past? </label>
+                <br>
+                <select class="form-control" id="programming-expertise">
+                    <option> I didn't                                    </option>
+                    <option> Visual programming languages (i.e. Scratch) </option>
+                    <option> Software code editors                       </option>
+                    <option> IDEs like VSCode                            </option>
+                    <option> I am crazy and like to edit code in Notepad </option>
+                </select>
+            </div>
+            <br>
 
-        <label for="past-languages"> Which programming languages have you used most in the past? </label>
-        <br>
-        <select id="past-languages">
-            <option> None             </option>
-            <option> Ruby             </option>
-            <option> C#               </option>
-            <option> JavaScript       </option>
-            <option> Go               </option>
-            <option> Python           </option>
-            <option> Rust             </option>
-            <option> Swift            </option>
-            <option> Java             </option>
-            <option> GDScript         </option>
-            <option> GML Code         </option>
-            <option> C++              </option>
-            <option> Assembly         </option>
-            <option> Scratch          </option>
-            <option> Raw Machine Code </option>
-        </select>
+            <div class="form-group">
+                <label for="assembler-compiler"> Do you prefer using an assembler or a compiler, or skip both with interpreted languages? </label>
+                <br>
+                <select class="form-control" id="assembler-compiler">
+                    <option> im not a big enough tech guru to understand this </option>
+                    <option> Assembler                                        </option>
+                    <option> Compiler                                         </option>
+                    <option> Interpreted languages                            </option>
+                    <option> i don't care man just give me an answer          </option>
+                </select>
+            </div>
+            <br>
 
-        <br><br>
+            <label class="form-check-label" for="why-learn-past"> What made you choose programming in the past? </label>
+            <div class="card">
+                <div class="card-body">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="why-learn-past"> Required to graduate high school </input>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="why-learn-past"> To make websites                 </input>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="why-learn-past"> To make games                    </input>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="why-learn-past"> To automate tasks                </input>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="why-learn-past"> To understand how computers work </input>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="why-learn-past"> Needed to get a job              </input>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="why-learn-past"> Seemed like a good hobby         </input>
+                    </div>
+                </div>
+            </div>
 
-        <label for="programming-expertise"> How had you programmed in the past? </label>
-        <br>
-        <select id="programming-expertise">
-            <option> I didn't                                    </option>
-            <option> Visual programming languages (i.e. Scratch) </option>
-            <option> Software code editors                       </option>
-            <option> IDEs like VSCode                            </option>
-            <option> I am crazy and like to edit code in Notepad </option>
-        </select>
+            <br>
 
-        <br><br>
+            <div class="form-group">
+                <label for="difficulty"> How difficult of a language could you handle? </label>
+                <br>
+                <select class="form-control" id="difficulty">
+                    <option> Baby's first programming language </option>
+                    <option> Very easy                         </option>
+                    <option> Easy                              </option>
+                    <option> Medium                            </option>
+                    <option> Hard                              </option>
+                    <option> Very hard                         </option>
+                    <option> Challenging                       </option>
+                </select>
+            </div>
 
-        <label for="assembler-compiler"> Do you prefer using an assembler or a compiler, or skip both with interpreted languages? </label>
-        <br>
-        <select id="assembler-compiler">
-            <option> im not a big enough tech guru to understand this </option>
-            <option> Assembler                                        </option>
-            <option> Compiler                                         </option>
-            <option> Interpreted languages                            </option>
-            <option> i don't care man just give me an answer          </option>
-        </select>
+            <br>
 
-        <br><br>
+            <input class="btn btn-primary" type="submit" value="Choose a language">
+        </form>
+    </div>
 
-        <label for="why-learn-past" > What made you choose programming in the past? </label>
-        <br>
-        <input type="checkbox" id="why-learn-past"> Required to graduate high school </input> <br>
-        <input type="checkbox" id="why-learn-past"> To make websites                 </input> <br>
-        <input type="checkbox" id="why-learn-past"> To make games                    </input> <br>
-        <input type="checkbox" id="why-learn-past"> To automate tasks                </input> <br>
-        <input type="checkbox" id="why-learn-past"> To understand how computers work </input> <br>
-        <input type="checkbox" id="why-learn-past"> Needed to get a job              </input> <br>
-        <input type="checkbox" id="why-learn-past"> Seemed like a good hobby         </input> <br>
-
-        <br><br>
-
-        <label for="difficulty"> How difficult of a language could you handle? </label>
-        <br>
-        <select id="difficulty">
-            <option> Baby's first programming language </option>
-            <option> Very easy                         </option>
-            <option> Easy                              </option>
-            <option> Medium                            </option>
-            <option> Hard                              </option>
-            <option> Very hard                         </option>
-            <option> Challenging                       </option>
-        </select>
-
-        <br><br>
-
-        <input type="submit" value="Choose a language">
-    </form>
-
+    <br>
     <hr>
     <div id="output">
         <p id="languages"> Your recommended languages will show up here. </p>
