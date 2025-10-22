@@ -62,9 +62,9 @@ window.onload = function() {
         } else {
             const lang = suggestThreeLanguages(experience, pastLanguages, programmingExpertise, assemblerCompiler, whyLearnPastScore, difficulty);
             if (lang[0] === "Brainf*ck") {
-                document.querySelector("p#languages").innerText = `We would recommend the languages ${lang[0]}, ${lang[1]}, and ${lang[2]}.\nAlso, you need help.`;
+                document.querySelector("p#languages").innerText = `We would recommend ${lang[0]}.\nAlso, you need help.`;
             } else {
-                document.querySelector("p#languages").innerText = `We would recommend the languages ${lang[0]}, ${lang[1]}, and ${lang[2]}.`;
+                document.querySelector("p#languages").innerText = `We would recommend ${lang[0]}.`;
             }
         }
         
