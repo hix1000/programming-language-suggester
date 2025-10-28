@@ -7,7 +7,7 @@ Mason Alex
 This program suggests a language based on your past history.
 
 > Setup
-Open the html file within the project folder in your browser or click [here](https://hix1000.github.io/programming-language-suggester/).
+Launch a live server or click [here](https://hix1000.github.io/programming-language-suggester/).
 
 ### Description
 This program ranks your answers against a cheat sheet and shows the highest result.

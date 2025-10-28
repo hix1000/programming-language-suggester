@@ -8,11 +8,11 @@ fetch('js/language-tokens.json')
         return response.json();
     })
     .then(data => {
-        console.log('Fetched language tokens:', data);
         languageTokens = data;
     })
     .catch(error => {
         console.error('Fetch operation failed:', error);
+        alert('Failed to load language metadata. Please try reloading the page.');
     });
 
 function getLanguageExperienceScore(language) {
@@ -33,7 +33,6 @@ function suggestThreeLanguages(experience, pastLanguage, programmingExpertise, a
         languageScores[language] = score;
     }
     let sortedLanguages = Object.keys(languageScores).sort((a, b) => languageScores[a] - languageScores[b]);
-    console.log(sortedLanguages);
     return sortedLanguages.slice(0, 3);
 }
 //#endregion
@@ -67,13 +66,6 @@ window.onload = function() {
                 document.querySelector("p#languages").innerText = `We would recommend ${lang[0]}.`;
             }
         }
-        
-        console.log("experience: "+experience);
-        console.log("pastLanguages: "+pastLanguages);
-        console.log("programmingExpertise: "+programmingExpertise);
-        console.log("assemblerCompiler: "+assemblerCompiler);
-        console.log("whyLearnPast: "+whyLearnPast);
-        console.log("difficulty: "+difficulty);
         
         event.preventDefault();
         document.querySelector("div#output").removeAttribute("class");
